@@ -1,0 +1,1842 @@
+openapi: 3.0.0
+info:
+    title: Gigmosaic Dashboard API
+    description: API for managing Gigmosaic
+    version: 1.0.0
+servers:
+    - url: http://localhost:3001/api
+      description: Local server
+    - url: http://3.98.96.192:3000/api
+      description: Staging server
+
+paths:
+    /auth/signUp:
+        post:
+            summary: User Sign Up
+            tags:
+                - auth
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    example: 'tolopok319@heweek.com'
+                                password:
+                                    type: string
+                                    example: 'TestPassword123!'
+                                groupRole:
+                                    type: string
+                                    example: 'admin'
+                            required:
+                                - email
+                                - password
+            responses:
+                '201':
+                    description: User signed up successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'User registered successfully.'
+                '400':
+                    description: Bad request - validation errors
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Validation error.'
+
+    /auth/confirmSignUp:
+        post:
+            summary: Confirm Code
+            tags:
+                - auth
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                username:
+                                    type: string
+                                    example: 'tolopok319@heweek.com'
+                                confirmationCode:
+                                    type: string
+                                    example: '315674'
+                            required:
+                                - username
+                                - confirmationCode
+            responses:
+                '200':
+                    description: Confirmation code validated successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Confirmation code validated.'
+                '400':
+                    description: Bad request
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Invalid confirmation code.'
+
+    /auth/signIn:
+        post:
+            summary: User Sign In
+            tags:
+                - auth
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    example: 'zybimyki@teleg.eu'
+                                password:
+                                    type: string
+                                    example: 'TestPassword123!'
+                            required:
+                                - email
+                                - password
+            responses:
+                '200':
+                    description: User signed in successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    token:
+                                        type: string
+                                        example: 'eyJhbGciOiJIUzI1NiIsInR...'
+                                    message:
+                                        type: string
+                                        example: 'Sign in successful.'
+                '401':
+                    description: Unauthorized - invalid credentials
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Invalid email or password.'
+
+    /auth/signOut:
+        post:
+            summary: User Sign Out
+            tags:
+                - auth
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    example: 'pykyduca@polkaroad.net'
+                            required:
+                                - email
+            responses:
+                '200':
+                    description: User signed out successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'User signed out successfully.'
+                '400':
+                    description: Bad request
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Invalid request.'
+
+    /auth/resendCode:
+        post:
+            summary: Resend Confirmation Code
+            tags:
+                - auth
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                username:
+                                    type: string
+                                    example: 'tolopok319@heweek.com'
+                            required:
+                                - username
+            responses:
+                '200':
+                    description: Confirmation code resent successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Confirmation code resent.'
+                '400':
+                    description: Bad request
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Invalid request.'
+
+    /auth/forgotPassword:
+        post:
+            summary: Request Password Reset
+            tags:
+                - auth
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    example: 'pykyduca@polkaroad.net'
+                            required:
+                                - email
+            responses:
+                '200':
+                    description: Password reset requested successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Password reset link sent.'
+                '400':
+                    description: Bad request
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Invalid email.'
+
+    /auth/resetPassword:
+        post:
+            summary: Reset Password
+            tags:
+                - auth
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                email:
+                                    type: string
+                                    example: 'pykyduca@polkaroad.net'
+                                verificationCode:
+                                    type: string
+                                    example: '091515'
+                                newPassword:
+                                    type: string
+                                    example: 'TestPassword123!'
+                            required:
+                                - email
+                                - verificationCode
+                                - newPassword
+            responses:
+                '200':
+                    description: Password reset successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Password reset successfully.'
+                '400':
+                    description: Bad request
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Invalid request.'
+
+    # /v1/events:
+    #   get:
+    #     summary: Get all events
+    #     tags:
+    #       - event
+    #     security:
+    #       - bearerAuth: []
+    #     responses:
+    #       "200":
+    #         description: A list of events
+    #         content:
+    #           application/json:
+    #             schema:
+    #               type: array
+    #               items:
+    #                 $ref: "#/components/schemas/event"
+    #       "400":
+    #         description: Bad request
+    #       "401":
+    #         description: Unauthorized - invalid credentials
+    #         content:
+    #           application/json:
+    #             schema:
+    #               type: object
+    #               properties:
+    #                 message:
+    #                   type: string
+    #                   example: "Invalid username or password."
+
+    #   post:
+    #     summary: Create a new event
+    #     tags:
+    #       - event
+    #     requestBody:
+    #       required: true
+    #       content:
+    #         application/json:
+    #           schema:
+    #             $ref: "#/components/schemas/event"
+    #     security:
+    #       - bearerAuth: []
+    #     responses:
+    #       "201":
+    #         description: Event created successfully
+    #         content:
+    #           application/json:
+    #             schema:
+    #               $ref: "#/components/schemas/event"
+    #       "400":
+    #         description: Bad request - video details not provided
+    #         content:
+    #           application/json:
+    #             schema:
+    #               type: object
+    #               properties:
+    #                 message:
+    #                   type: string
+    #                   example: "Do not upload videos."
+    #       "401":
+    #         description: Unauthorized - invalid credentials
+    #         content:
+    #           application/json:
+    #             schema:
+    #               type: object
+    #               properties:
+    #                 message:
+    #                   type: string
+    #                   example: "Invalid username or password."
+
+    # /v1/events/{eventId}:
+    #   get:
+    #     summary: Get an event by ID
+    #     tags:
+    #       - event
+    #     parameters:
+    #       - in: path
+    #         name: eventId
+    #         required: true
+    #         schema:
+    #           type: string
+    #         description: The event ID
+    #     security:
+    #       - bearerAuth: []
+    #     responses:
+    #       "200":
+    #         description: A single event
+    #         content:
+    #           application/json:
+    #             schema:
+    #               $ref: "#/components/schemas/event"
+    #       "404":
+    #         description: Event ID not found
+    #       "400":
+    #         description: Bad request
+    #       "401":
+    #         description: Unauthorized - invalid credentials
+    #         content:
+    #           application/json:
+    #             schema:
+    #               type: object
+    #               properties:
+    #                 message:
+    #                   type: string
+    #                   example: "Invalid username or password."
+
+    #   put:
+    #     summary: Update an event by ID
+    #     tags:
+    #       - event
+    #     parameters:
+    #       - in: path
+    #         name: eventId
+    #         required: true
+    #         schema:
+    #           type: string
+    #         description: The event ID
+    #     requestBody:
+    #       required: true
+    #       content:
+    #         application/json:
+    #           schema:
+    #             $ref: "#/components/schemas/event"
+    #     security:
+    #       - bearerAuth: []
+    #     responses:
+    #       "200":
+    #         description: Event updated successfully
+    #         content:
+    #           application/json:
+    #             schema:
+    #               $ref: "#/components/schemas/event"
+    #       "404":
+    #         description: Event not found
+    #       "400":
+    #         description: Bad request
+    #       "401":
+    #         description: Unauthorized - invalid credentials
+    #         content:
+    #           application/json:
+    #             schema:
+    #               type: object
+    #               properties:
+    #                 message:
+    #                   type: string
+    #                   example: "Invalid username or password."
+
+    #   delete:
+    #     summary: Delete an event by ID
+    #     tags:
+    #       - event
+    #     parameters:
+    #       - in: path
+    #         name: eventId
+    #         required: true
+    #         schema:
+    #           type: string
+    #         description: The event ID
+    #     security:
+    #       - bearerAuth: []
+    #     responses:
+    #       "200":
+    #         description: Event deleted successfully
+    #       "404":
+    #         description: Event not found
+    #       "400":
+    #         description: Bad request
+    #       "401":
+    #         description: Unauthorized - invalid credentials
+    #         content:
+    #           application/json:
+    #             schema:
+    #               type: object
+    #               properties:
+    #                 message:
+    #                   type: string
+    #                   example: "Invalid username or password."
+
+    /v1/category:
+        post:
+            summary: Create a new category
+            description: Create a new category such as "Technology" with details like name, slug, image, certificate requirement, and featured status.
+            operationId: createCategory
+            tags:
+                - Categories
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                categoryName:
+                                    type: string
+                                    example: 'Technology'
+                                categorySlug:
+                                    type: string
+                                    example: 'technology'
+                                categoryImage:
+                                    type: string
+                                    example: 'https://example.com/image.jpg'
+                                isCertificateRequired:
+                                    type: boolean
+                                    example: true
+                                isFeatured:
+                                    type: boolean
+                                    example: true
+            responses:
+                201:
+                    description: Successfully created a category
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Category created successfully'
+                                    categoryId:
+                                        type: string
+                                        example: '12345'
+
+        get:
+            summary: Get all categories
+            description: Retrieve a list of all categories.
+            operationId: getCategories
+            tags:
+                - Categories
+            responses:
+                200:
+                    description: A list of categories
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: object
+                                    properties:
+                                        categoryName:
+                                            type: string
+                                            example: 'Technology'
+                                        categorySlug:
+                                            type: string
+                                            example: 'technology'
+                                        categoryImage:
+                                            type: string
+                                            example: 'https://example.com/image.jpg'
+                                        isCertificateRequired:
+                                            type: boolean
+                                            example: true
+                                        isFeatured:
+                                            type: boolean
+                                            example: true
+
+    /v1/category/{categoryId}:
+        get:
+            summary: Get category by ID
+            description: Retrieve a category by its unique ID.
+            operationId: getCategoryById
+            tags:
+                - Categories
+            parameters:
+                - name: categoryId
+                  in: path
+                  required: true
+                  description: The ID of the category
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: Successfully retrieved category details
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    categoryName:
+                                        type: string
+                                        example: 'Technology'
+                                    categorySlug:
+                                        type: string
+                                        example: 'technology'
+                                    categoryImage:
+                                        type: string
+                                        example: 'https://example.com/image.jpg'
+                                    isCertificateRequired:
+                                        type: boolean
+                                        example: true
+                                    isFeatured:
+                                        type: boolean
+                                        example: true
+
+        put:
+            summary: Update category by ID
+            description: Update the details of a category.
+            operationId: updateCategory
+            tags:
+                - Categories
+            parameters:
+                - name: categoryId
+                  in: path
+                  required: true
+                  description: The ID of the category
+                  schema:
+                      type: string
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                categoryName:
+                                    type: string
+                                    example: 'Technology'
+                                categorySlug:
+                                    type: string
+                                    example: 'technology'
+                                categoryImage:
+                                    type: string
+                                    example: 'https://example.com/image.jpg'
+                                isCertificateRequired:
+                                    type: boolean
+                                    example: true
+                                isFeatured:
+                                    type: boolean
+                                    example: true
+            responses:
+                200:
+                    description: Successfully updated category
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Category updated successfully'
+
+        delete:
+            summary: Delete category by ID
+            description: Delete a category by its unique ID.
+            operationId: deleteCategory
+            tags:
+                - Categories
+            parameters:
+                - name: categoryId
+                  in: path
+                  required: true
+                  description: The ID of the category to delete
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: Successfully deleted category
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Category deleted successfully'
+
+    /v1/subcategory:
+        post:
+            summary: Create a new subcategory
+            description: Create a new subcategory such as "Electronics" under a specific category with details like name, slug, image, and featured status.
+            operationId: createSubCategory
+            tags:
+                - SubCategories
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                subCategoryName:
+                                    type: string
+                                    example: 'Electronics'
+                                subCategorySlug:
+                                    type: string
+                                    example: 'electronics'
+                                subCategoryImage:
+                                    type: string
+                                    example: 'https://example.com/electronics.jpg'
+                                isFeatured:
+                                    type: boolean
+                                    example: true
+                                categoryId:
+                                    type: string
+                                    example: 'CID_3'
+            responses:
+                201:
+                    description: Successfully created a subcategory
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Subcategory created successfully'
+                                    subCategoryId:
+                                        type: string
+                                        example: '12345'
+
+        get:
+            summary: Get all subcategories
+            description: Retrieve a list of all subcategories.
+            operationId: getSubCategories
+            tags:
+                - SubCategories
+            responses:
+                200:
+                    description: A list of subcategories
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: object
+                                    properties:
+                                        subCategoryName:
+                                            type: string
+                                            example: 'Electronics'
+                                        subCategorySlug:
+                                            type: string
+                                            example: 'electronics'
+                                        subCategoryImage:
+                                            type: string
+                                            example: 'https://example.com/electronics.jpg'
+                                        isFeatured:
+                                            type: boolean
+                                            example: true
+                                        categoryId:
+                                            type: string
+                                            example: 'CID_3'
+
+    /v1/subcategory/{subCategoryId}:
+        get:
+            summary: Get subcategory by ID
+            description: Retrieve a subcategory by its unique ID.
+            operationId: getSubCategoryById
+            tags:
+                - SubCategories
+            parameters:
+                - name: subCategoryId
+                  in: path
+                  required: true
+                  description: The ID of the subcategory
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: Successfully retrieved subcategory details
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    subCategoryName:
+                                        type: string
+                                        example: 'Electronics'
+                                    subCategorySlug:
+                                        type: string
+                                        example: 'electronics'
+                                    subCategoryImage:
+                                        type: string
+                                        example: 'https://example.com/electronics.jpg'
+                                    isFeatured:
+                                        type: boolean
+                                        example: true
+                                    categoryId:
+                                        type: string
+                                        example: 'CID_3'
+
+        put:
+            summary: Update subcategory by ID
+            description: Update the details of a subcategory.
+            operationId: updateSubCategory
+            tags:
+                - SubCategories
+            parameters:
+                - name: subCategoryId
+                  in: path
+                  required: true
+                  description: The ID of the subcategory to update
+                  schema:
+                      type: string
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                subCategoryName:
+                                    type: string
+                                    example: 'Electronics'
+                                subCategorySlug:
+                                    type: string
+                                    example: 'electronics'
+                                subCategoryImage:
+                                    type: string
+                                    example: 'https://example.com/electronics.jpg'
+                                isFeatured:
+                                    type: boolean
+                                    example: true
+                                categoryId:
+                                    type: string
+                                    example: 'CID_3'
+            responses:
+                200:
+                    description: Successfully updated subcategory
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Subcategory updated successfully'
+
+        delete:
+            summary: Delete subcategory by ID
+            description: Delete a subcategory by its unique ID.
+            operationId: deleteSubCategory
+            tags:
+                - SubCategories
+            parameters:
+                - name: subCategoryId
+                  in: path
+                  required: true
+                  description: The ID of the subcategory to delete
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: Successfully deleted subcategory
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Subcategory deleted successfully'
+    /v1/staff:
+        post:
+            summary: Create a new staff member
+            description: Creates a new staff member by providing staff information in the request body.
+            operationId: createStaff
+            tags:
+                - Staff
+            requestBody:
+                description: Staff data to be created
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                fullName:
+                                    type: string
+                                    example: 'John Doe'
+                                email:
+                                    type: string
+                                    example: 'johndoe@example.com'
+                                phoneNumber:
+                                    type: string
+                                    example: '1234567890'
+                                address:
+                                    type: string
+                                    example: '123 Main St'
+                                country:
+                                    type: string
+                                    example: 'USA'
+                                state:
+                                    type: string
+                                    example: 'California'
+                                city:
+                                    type: string
+                                    example: 'Los Angeles'
+                                zipCode:
+                                    type: string
+                                    example: '90001'
+                                description:
+                                    type: string
+                                    example: 'Staff member in charge of operations.'
+                                serviceIds:
+                                    type: array
+                                    items:
+                                        type: string
+                                    example: ['SERVICE1', 'SERVICE2']
+                                status:
+                                    type: boolean
+                                    example: true
+            responses:
+                '201':
+                    description: Staff member created successfully
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    staffId:
+                                        type: string
+                                        example: 'STID_1'
+                                    fullName:
+                                        type: string
+                                        example: 'John Doe'
+                                    email:
+                                        type: string
+                                        example: 'johndoe@example.com'
+                                    phoneNumber:
+                                        type: string
+                                        example: '1234567890'
+                                    address:
+                                        type: string
+                                        example: '123 Main St'
+                                    country:
+                                        type: string
+                                        example: 'USA'
+                                    state:
+                                        type: string
+                                        example: 'California'
+                                    city:
+                                        type: string
+                                        example: 'Los Angeles'
+                                    zipCode:
+                                        type: string
+                                        example: '90001'
+                                    description:
+                                        type: string
+                                        example: 'Staff member in charge of operations.'
+                                    serviceIds:
+                                        type: array
+                                        items:
+                                            type: string
+                                        example: ['SERVICE1', 'SERVICE2']
+                                    status:
+                                        type: boolean
+                                        example: true
+                '400':
+                    description: Invalid request body
+                '500':
+                    description: Internal server error
+
+        get:
+            summary: Get all staff members
+            description: Retrieves a list of all staff members.
+            operationId: getStaff
+            tags:
+                - Staff
+            responses:
+                '200':
+                    description: A list of staff members
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    type: object
+                                    properties:
+                                        staffId:
+                                            type: string
+                                            example: 'STID_1'
+                                        fullName:
+                                            type: string
+                                            example: 'John Doe'
+                                        email:
+                                            type: string
+                                            example: 'johndoe@example.com'
+                                        phoneNumber:
+                                            type: string
+                                            example: '1234567890'
+                                        address:
+                                            type: string
+                                            example: '123 Main St'
+                                        country:
+                                            type: string
+                                            example: 'USA'
+                                        state:
+                                            type: string
+                                            example: 'California'
+                                        city:
+                                            type: string
+                                            example: 'Los Angeles'
+                                        zipCode:
+                                            type: string
+                                            example: '90001'
+                                        description:
+                                            type: string
+                                            example: 'Staff member in charge of operations.'
+                                        serviceIds:
+                                            type: array
+                                            items:
+                                                type: string
+                                            example: ['SERVICE1', 'SERVICE2']
+                                        status:
+                                            type: boolean
+                                            example: true
+                '500':
+                    description: Internal server error
+
+    /v1/staff/{staffId}:
+        get:
+            summary: Get a staff member by ID
+            description: Retrieves a specific staff member by their ID.
+            operationId: getStaffById
+            tags:
+                - Staff
+            parameters:
+                - name: staffId
+                  in: path
+                  required: true
+                  description: The ID of the staff member to retrieve
+                  schema:
+                      type: string
+                      example: 'STID_1'
+            responses:
+                '200':
+                    description: A staff member object
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    staffId:
+                                        type: string
+                                        example: 'STID_1'
+                                    fullName:
+                                        type: string
+                                        example: 'John Doe'
+                                    email:
+                                        type: string
+                                        example: 'johndoe@example.com'
+                                    phoneNumber:
+                                        type: string
+                                        example: '1234567890'
+                                    address:
+                                        type: string
+                                        example: '123 Main St'
+                                    country:
+                                        type: string
+                                        example: 'USA'
+                                    state:
+                                        type: string
+                                        example: 'California'
+                                    city:
+                                        type: string
+                                        example: 'Los Angeles'
+                                    zipCode:
+                                        type: string
+                                        example: '90001'
+                                    description:
+                                        type: string
+                                        example: 'Staff member in charge of operations.'
+                                    serviceIds:
+                                        type: array
+                                        items:
+                                            type: string
+                                        example: ['SERVICE1', 'SERVICE2']
+                                    status:
+                                        type: boolean
+                                        example: true
+                '404':
+                    description: Staff member not found
+                '500':
+                    description: Internal server error
+
+        put:
+            summary: Update an existing staff member
+            description: Updates a staff member's details.
+            operationId: updateStaff
+            tags:
+                - Staff
+            parameters:
+                - name: staffId
+                  in: path
+                  required: true
+                  description: The ID of the staff member to update
+                  schema:
+                      type: string
+                      example: 'STID_1'
+            requestBody:
+                description: The updated staff data
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                fullName:
+                                    type: string
+                                    example: 'John Doe Updated'
+                                email:
+                                    type: string
+                                    example: 'johndoe.updated@example.com'
+                                phoneNumber:
+                                    type: string
+                                    example: '1234567891'
+                                address:
+                                    type: string
+                                    example: '456 Another St'
+                                country:
+                                    type: string
+                                    example: 'USA'
+                                state:
+                                    type: string
+                                    example: 'California'
+                                city:
+                                    type: string
+                                    example: 'Los Angeles'
+                                zipCode:
+                                    type: string
+                                    example: '90002'
+                                description:
+                                    type: string
+                                    example: 'Updated description.'
+                                serviceIds:
+                                    type: array
+                                    items:
+                                        type: string
+                                    example: ['SERVICE1', 'SERVICE3']
+                                status:
+                                    type: boolean
+                                    example: true
+            responses:
+                '200':
+                    description: The updated staff member
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    staffId:
+                                        type: string
+                                        example: 'STID_1'
+                                    fullName:
+                                        type: string
+                                        example: 'John Doe Updated'
+                                    email:
+                                        type: string
+                                        example: 'johndoe.updated@example.com'
+                                    phoneNumber:
+                                        type: string
+                                        example: '1234567891'
+                                    address:
+                                        type: string
+                                        example: '456 Another St'
+                                    country:
+                                        type: string
+                                        example: 'USA'
+                                    state:
+                                        type: string
+                                        example: 'California'
+                                    city:
+                                        type: string
+                                        example: 'Los Angeles'
+                                    zipCode:
+                                        type: string
+                                        example: '90002'
+                                    description:
+                                        type: string
+                                        example: 'Updated description.'
+                                    serviceIds:
+                                        type: array
+                                        items:
+                                            type: string
+                                        example: ['SERVICE1', 'SERVICE3']
+                                    status:
+                                        type: boolean
+                                        example: true
+                '400':
+                    description: Invalid request body
+                '404':
+                    description: Staff member not found
+                '500':
+                    description: Internal server error
+
+        delete:
+            summary: Delete a staff member
+            description: Deletes a staff member by ID.
+            operationId: deleteStaff
+            tags:
+                - Staff
+            parameters:
+                - name: staffId
+                  in: path
+                  required: true
+                  description: The ID of the staff member to delete
+                  schema:
+                      type: string
+                      example: 'STID_1'
+            responses:
+                '200':
+                    description: Staff member deleted successfully
+                '404':
+                    description: Staff member not found
+                '500':
+                    description: Internal server error
+    /v1/service:
+        post:
+            summary: Create a new yoga class service
+            description: Add a new yoga class with associated services, availability, location, and SEO data.
+            operationId: createServiceInformation
+            tags:
+                - Services
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                serviceTitle:
+                                    type: string
+                                    example: 'Yoga Classes'
+                                    description: Title of the service
+                                slug:
+                                    type: string
+                                    example: 'yoga-classes'
+                                    description: Slug for the service URL
+                                categoryId:
+                                    type: string
+                                    example: 'cat123'
+                                    description: Category ID for the service
+                                subCategoryId:
+                                    type: string
+                                    example: 'subcat123'
+                                    description: Sub-category ID for the service
+                                price:
+                                    type: number
+                                    format: float
+                                    example: 50.00
+                                    description: Price for the service
+                                offerPrice:
+                                    type: integer
+                                    example: 80
+                                    description: Price after discount, if applicable
+                                priceAfterDiscount:
+                                    type: integer
+                                    example: 70
+                                    description: Final price after discount
+                                duration:
+                                    type: string
+                                    example: '2 hours'
+                                    description: Duration of the service
+                                allowZoomMeeting:
+                                    type: boolean
+                                    example: true
+                                    description: Whether the service allows Zoom meetings
+                                zoomInvitationLink:
+                                    type: string
+                                    example: 'https://zoom.us/j/1234567890'
+                                    description: Zoom meeting invitation link
+                                allowGoogleMeet:
+                                    type: boolean
+                                    example: false
+                                    description: Whether the service allows Google Meet meetings
+                                googleInvitationLink:
+                                    type: string
+                                    example: ''
+                                    description: Google Meet invitation link
+                                staff:
+                                    type: array
+                                    items:
+                                        type: string
+                                    example: ['STID_8']
+                                    description: List of staff IDs associated with the service
+                                includes:
+                                    type: array
+                                    items:
+                                        type: string
+                                    example:
+                                        [
+                                            'Service consultation',
+                                            'Website design',
+                                            'Basic SEO setup',
+                                        ]
+                                    description: List of included services or offerings
+                                serviceOverview:
+                                    type: string
+                                    example: 'Comprehensive yoga classes to improve flexibility, strength, and mindfulness.'
+                                    description: Overview of the service
+                                isActive:
+                                    type: boolean
+                                    example: true
+                                    description: Whether the service is active or not
+                                additionalService:
+                                    type: array
+                                    items:
+                                        type: object
+                                        properties:
+                                            serviceItem:
+                                                type: string
+                                                example: 'Premium Yoga Mat'
+                                                description: Name of the additional service item
+                                            price:
+                                                type: number
+                                                format: float
+                                                example: 15.00
+                                                description: Price for the additional service item
+                                            duration:
+                                                type: string
+                                                example: 'N/A'
+                                                description: Duration for the additional service item
+                                            images:
+                                                type: string
+                                                example: 'https://example.com/image122.jpg'
+                                                description: Array of image URLs for the service
+                                    description: Array of additional services offered with the yoga classes
+                                availability:
+                                    type: array
+                                    items:
+                                        type: object
+                                        properties:
+                                            day:
+                                                type: string
+                                                example: 'monday'
+                                                description: The day of the week
+                                            available:
+                                                type: boolean
+                                                example: true
+                                                description: Whether the service is available on this day
+                                            timeSlots:
+                                                type: array
+                                                items:
+                                                    type: object
+                                                    properties:
+                                                        from:
+                                                            type: string
+                                                            example: '09:00'
+                                                            description: Start time for the time slot
+                                                        to:
+                                                            type: string
+                                                            example: '10:00'
+                                                            description: End time for the time slot
+                                                        maxBookings:
+                                                            type: integer
+                                                            example: 5
+                                                            description: Maximum number of bookings allowed for this time slot
+                                    description: Availability of the service, including the days and time slots
+                                location:
+                                    type: array
+                                    items:
+                                        type: object
+                                        properties:
+                                            address:
+                                                type: string
+                                                example: '123 Yoga Street'
+                                                description: Street address of the yoga class location
+                                            city:
+                                                type: string
+                                                example: 'New York'
+                                                description: City of the yoga class location
+                                            state:
+                                                type: string
+                                                example: 'NY'
+                                                description: State of the yoga class location
+                                            country:
+                                                type: string
+                                                example: 'USA'
+                                                description: Country of the yoga class location
+                                            pinCode:
+                                                type: string
+                                                example: '10001'
+                                                description: Pin code of the location
+                                            googleMapsPlaceId:
+                                                type: string
+                                                example: '10001'
+                                                description: Google Maps Place ID for the location
+                                            longitude:
+                                                type: number
+                                                format: float
+                                                example: -73.935242
+                                                description: Longitude of the location
+                                            latitude:
+                                                type: number
+                                                format: float
+                                                example: 40.730610
+                                                description: Latitude of the location
+                                    description: Location details of the yoga service
+
+                                gallery:
+                                    type: array
+                                    items:
+                                        type: object
+                                        properties:
+                                            serviceImages:
+                                                type: array
+                                                items:
+                                                    type: string
+                                                example:
+                                                    - 'https://example.com/image122.jpg'
+                                                    - 'https://example.com/image211.jpg'
+                                                description: Array of image URLs for the service
+                                            serviceVideo:
+                                                type: array
+                                                items:
+                                                    type: string
+                                                example:
+                                                    - 'https://example.com/video1.mp4'
+                                                    - 'https://example.com/video2.mp4'
+                                                description: Array of video URLs for the service
+                                            videoLink:
+                                                type: string
+                                                example: 'https://youtube.com/watch?v=xyz123'
+                                                description: A link to a video explaining the service
+
+                                faq:
+                                    type: array
+                                    items:
+                                        type: object
+                                        properties:
+                                            question:
+                                                type: string
+                                                example: 'What services do you offer?'
+                                                description: Frequently asked question
+                                            answer:
+                                                type: string
+                                                example: 'We offer yoga classes in various formats and locations.'
+                                                description: Answer to the frequently asked question
+                                seo:
+                                    type: array
+                                    items:
+                                        type: object
+                                        properties:
+                                            metaTitle:
+                                                type: string
+                                                example: 'Yoga Classes - Learn Yoga in New York'
+                                                description: SEO meta title for the service
+                                            metaKeywords:
+                                                type: array
+                                                items:
+                                                    type: string
+                                                example:
+                                                    [
+                                                        'yoga',
+                                                        'yoga classes',
+                                                        'fitness',
+                                                    ]
+                                                description: SEO meta keywords for the service
+                                            metaDescription:
+                                                type: string
+                                                example: 'Join our expert yoga classes in New York and improve your fitness and flexibility.'
+                                                description: SEO meta description for the service
+                                    description: SEO information related to the service
+            responses:
+                201:
+                    description: Successfully created service information
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Yoga class service created successfully'
+                                    serviceId:
+                                        type: string
+                                        example: '12345'
+
+        get:
+            summary: Get yoga class service
+            description: Retrieve a service
+            tags:
+                - Services
+            responses:
+                200:
+                    description: Successfully retrieved service information
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    serviceTitle:
+                                        type: string
+                                        example: Yoga Classes
+                                    categoryId:
+                                        type: string
+                                        example: cat123
+                                    subCategoryId:
+                                        type: string
+                                        example: subcat123
+                                    price:
+                                        type: number
+                                        format: float
+                                        example: 50.00
+                                    duration:
+                                        type: string
+                                        example: 1 hour
+
+    /v1/service/{serviceId}:
+        get:
+            summary: Get yoga class service by ID
+            description: Retrieve a yoga class service by its unique ID.
+            operationId: getServiceInformationById
+            tags:
+                - Services
+            parameters:
+                - name: serviceId
+                  in: path
+                  required: true
+                  description: The ID of the yoga class service
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: Successfully retrieved service information
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    serviceTitle:
+                                        type: string
+                                        example: Yoga Classes
+                                    categoryId:
+                                        type: string
+                                        example: cat123
+                                    subCategoryId:
+                                        type: string
+                                        example: subcat123
+                                    price:
+                                        type: number
+                                        format: float
+                                        example: 50.00
+                                    duration:
+                                        type: string
+                                        example: 1 hour
+
+        put:
+            summary: Update yoga class service by ID
+            description: Update the details of a yoga class service.
+            operationId: updateServiceInformation
+            tags:
+                - Services
+            parameters:
+                - name: serviceId
+                  in: path
+                  required: true
+                  description: The ID of the yoga class service
+                  schema:
+                      type: string
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                serviceTitle:
+                                    type: string
+                                    example: 'Yoga Classes'
+                                    description: Title of the service
+                                slug:
+                                    type: string
+                                    example: 'yoga-classes'
+                                    description: Slug for the service URL
+                                categoryId:
+                                    type: string
+                                    example: 'cat123'
+                                    description: Category ID for the service
+                                subCategoryId:
+                                    type: string
+                                    example: 'subcat123'
+                                    description: Sub-category ID for the service
+                                price:
+                                    type: number
+                                    format: float
+                                    example: 50.00
+                                    description: Price for the service
+                                offerPrice:
+                                    type: integer
+                                    example: 80
+                                    description: Price after discount, if applicable
+                                priceAfterDiscount:
+                                    type: integer
+                                    example: 70
+                                    description: Final price after discount
+                                duration:
+                                    type: string
+                                    example: '2 hours'
+                                    description: Duration of the service
+                                allowZoomMeeting:
+                                    type: boolean
+                                    example: true
+                                    description: Whether the service allows Zoom meetings
+                                zoomInvitationLink:
+                                    type: string
+                                    example: 'https://zoom.us/j/1234567890'
+                                    description: Zoom meeting invitation link
+                                allowGoogleMeet:
+                                    type: boolean
+                                    example: false
+                                    description: Whether the service allows Google Meet meetings
+                                googleInvitationLink:
+                                    type: string
+                                    example: ''
+                                    description: Google Meet invitation link
+                                staff:
+                                    type: array
+                                    items:
+                                        type: string
+                                    example: ['STID_8']
+                                    description: List of staff IDs associated with the service
+                                includes:
+                                    type: array
+                                    items:
+                                        type: string
+                                    example:
+                                        [
+                                            'Service consultation',
+                                            'Website design',
+                                            'Basic SEO setup',
+                                        ]
+                                    description: List of included services or offerings
+                                serviceOverview:
+                                    type: string
+                                    example: 'Comprehensive yoga classes to improve flexibility, strength, and mindfulness.'
+                                    description: Overview of the service
+                                isActive:
+                                    type: boolean
+                                    example: true
+                                    description: Whether the service is active or not
+                                additionalService:
+                                    type: array
+                                    items:
+                                        type: object
+                                        properties:
+                                            serviceItem:
+                                                type: string
+                                                example: 'Premium Yoga Mat'
+                                                description: Name of the additional service item
+                                            price:
+                                                type: number
+                                                format: float
+                                                example: 15.00
+                                                description: Price for the additional service item
+                                            duration:
+                                                type: string
+                                                example: 'N/A'
+                                                description: Duration for the additional service item
+                                            images:
+                                                type: string
+                                                example: 'https://example.com/image211.jpg'
+                                                description: Array of image URLs for the service
+                                    description: Array of additional services offered with the yoga classes
+                                availability:
+                                    type: array
+                                    items:
+                                        type: object
+                                        properties:
+                                            day:
+                                                type: string
+                                                example: 'monday'
+                                                description: The day of the week
+                                            available:
+                                                type: boolean
+                                                example: true
+                                                description: Whether the service is available on this day
+                                            timeSlots:
+                                                type: array
+                                                items:
+                                                    type: object
+                                                    properties:
+                                                        from:
+                                                            type: string
+                                                            example: '09:00'
+                                                            description: Start time for the time slot
+                                                        to:
+                                                            type: string
+                                                            example: '10:00'
+                                                            description: End time for the time slot
+                                                        maxBookings:
+                                                            type: integer
+                                                            example: 5
+                                                            description: Maximum number of bookings allowed for this time slot
+                                    description: Availability of the service, including the days and time slots
+                                location:
+                                    type: array
+                                    items:
+                                        type: object
+                                        properties:
+                                            address:
+                                                type: string
+                                                example: '123 Yoga Street'
+                                                description: Street address of the yoga class location
+                                            city:
+                                                type: string
+                                                example: 'New York'
+                                                description: City of the yoga class location
+                                            state:
+                                                type: string
+                                                example: 'NY'
+                                                description: State of the yoga class location
+                                            country:
+                                                type: string
+                                                example: 'USA'
+                                                description: Country of the yoga class location
+                                            pinCode:
+                                                type: string
+                                                example: '10001'
+                                                description: Pin code of the location
+                                            googleMapsPlaceId:
+                                                type: string
+                                                example: '10001'
+                                                description: Google Maps Place ID for the location
+                                            longitude:
+                                                type: number
+                                                format: float
+                                                example: -73.935242
+                                                description: Longitude of the location
+                                            latitude:
+                                                type: number
+                                                format: float
+                                                example: 40.730610
+                                                description: Latitude of the location
+                                    description: Location details of the yoga service
+
+                                gallery:
+                                    type: array
+                                    items:
+                                        type: object
+                                        properties:
+                                            serviceImages:
+                                                type: array
+                                                items:
+                                                    type: string
+                                                example:
+                                                    - 'https://example.com/image122.jpg'
+                                                    - 'https://example.com/image211.jpg'
+                                                description: Array of image URLs for the service
+                                            serviceVideo:
+                                                type: array
+                                                items:
+                                                    type: string
+                                                example:
+                                                    - 'https://example.com/video1.mp4'
+                                                    - 'https://example.com/video2.mp4'
+                                                description: Array of video URLs for the service
+                                            videoLink:
+                                                type: string
+                                                example: 'https://youtube.com/watch?v=xyz123'
+                                                description: A link to a video explaining the service
+
+                                faq:
+                                    type: array
+                                    items:
+                                        type: object
+                                        properties:
+                                            question:
+                                                type: string
+                                                example: 'What services do you offer?'
+                                                description: Frequently asked question
+                                            answer:
+                                                type: string
+                                                example: 'We offer yoga classes in various formats and locations.'
+                                                description: Answer to the frequently asked question
+                                seo:
+                                    type: array
+                                    items:
+                                        type: object
+                                        properties:
+                                            metaTitle:
+                                                type: string
+                                                example: 'Yoga Classes - Learn Yoga in New York'
+                                                description: SEO meta title for the service
+                                            metaKeywords:
+                                                type: array
+                                                items:
+                                                    type: string
+                                                example:
+                                                    [
+                                                        'yoga',
+                                                        'yoga classes',
+                                                        'fitness',
+                                                    ]
+                                                description: SEO meta keywords for the service
+                                            metaDescription:
+                                                type: string
+                                                example: 'Join our expert yoga classes in New York and improve your fitness and flexibility.'
+                                                description: SEO meta description for the service
+                                    description: SEO information related to the service
+
+            responses:
+                200:
+                    description: Successfully updated service information
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Yoga class service updated successfully'
+
+        delete:
+            summary: Delete yoga class service by ID
+            description: Delete a yoga class service by its unique ID.
+            operationId: deleteServiceInformation
+            tags:
+                - Services
+            parameters:
+                - name: serviceId
+                  in: path
+                  required: true
+                  description: The ID of the yoga class service
+                  schema:
+                      type: string
+            responses:
+                200:
+                    description: Successfully deleted service information
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                properties:
+                                    message:
+                                        type: string
+                                        example: 'Yoga class service deleted successfully'
+
+components:
+    securitySchemes:
+        bearerAuth:
+            type: http
+            scheme: bearer
+            bearerFormat: JWT

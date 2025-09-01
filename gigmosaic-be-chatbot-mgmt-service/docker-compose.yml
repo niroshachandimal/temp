@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+    chatbot-mgmt-service:
+        image: 339713138420.dkr.ecr.ca-central-1.amazonaws.com/aplicy/gigmosaic-chatbot-mgmt-be:latest
+        container_name: gigmosaic-chatbot-mgmt-service-container
+        restart: always
+        ports:
+            - '3070:3070'
+        environment:
+            - PORT=3070
+            - REGION=ca-central-1
