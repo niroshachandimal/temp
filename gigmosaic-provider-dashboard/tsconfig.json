@@ -1,0 +1,23 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "compilerOptions": {
+    "lib": ["es2021", "dom"],
+    "target": "es2021",
+    "types": ["jest", "node"],
+
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "strict": false,
+
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "declaration": false
+  }
+}

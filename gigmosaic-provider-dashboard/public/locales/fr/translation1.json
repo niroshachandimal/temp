@@ -1,0 +1,287 @@
+{
+    "contact": {
+      "phone": "1-437-424-4015",
+      "email": "info@gigmosaic.ca"
+    },
+    "language_currency": {
+      "language": "Français",
+      "currency": "USD"
+    },
+    "authentication": {
+      "notification": "Notification",
+      "login_register": "Se connecter / S'inscrire"
+    },
+    
+    "search": {
+      "select_category": "Sélectionner une catégorie",
+      "search_for_servises": "Rechercher des services",
+      "search_products": "Rechercher des produits",
+      "enter_location": "Entrer l'emplacement",
+      "search_button": "Rechercher",
+      "all_canada": "Tout le Canada"
+    },
+  
+    "featured_categories": {
+    "header": "Catégories en vedette",
+    "categories": [
+      {
+        "label_1": "Construction"
+      },
+      {
+        "label_2": "Lavage de voiture"
+      },
+      {
+        "label_3": "Électrique"
+      },
+      {
+        "label_4": "Nettoyage"
+      },
+      {
+        "label_5": "Menuiserie"
+      },
+      {
+        "label_6": "Plomberie"
+      },
+      {
+        "label_7": "Informatique"
+      },
+      {
+        "label_8": "Tutorat"
+      },
+      {
+        "label_9": "Entraînement personnel"
+      }
+    ]
+
+  },
+
+    "deal_of_the_day": {
+      "description": "Offre du jour"
+    },
+  
+   "features": [
+  {
+    "label_1": "Support 24/7",
+    "description_1": "Notre équipe est disponible à tout moment pour vous aider"
+  },
+  {
+    "label_2": "Opportunités flexibles",
+    "description_2": "Congue sur imperdiet raes quisque faucibus"
+  },
+  {
+    "label_3": "Conseils d'experts",
+    "description_3": "Congue sur imperdiet raes"
+  },
+  {
+    "label_4": "Centre d'aide",
+    "description_4": "Quisque faucibus"
+  }
+],
+
+  
+    "our_feature": "Notre fonctionnalité",
+    "view_all": "Voir tout",
+    "products": [
+      {
+        "status": "Statut:",
+        "available_now": "Disponible maintenant",
+        "available_product": "Produit disponible:"
+      }
+    ],
+    "countdown": "Dépêchez-vous! L'offre se termine dans :",
+
+    "pagination": {
+      "previous": "Précédent",
+      "next": "Suivant"
+      },
+  
+    "services": [
+      {
+        "reviews": "Avis",
+        "button": "RÉSERVER MAINTENANT"
+      }
+    ],
+  
+    "recent_products": {
+      "header": "Produit récent",
+      "products": [
+        {
+          "name": "Installation de revêtement de sol",
+          "price": "À partir de",
+          "button": "Explorer maintenant"
+        }
+      ]
+    },
+  
+    "hot_products": {
+      "header": "Produits en vedette",
+      "products": [
+        {
+          "name": "Installation de caméra de sécurité",
+          "price": "À partir de 56,00 $",
+          "button": "Explorer maintenant"
+        }
+      ]
+    },
+  
+    "top_providers": {
+      "header": "Fournisseurs principaux"
+    },
+  
+    "our_recent_providers": {
+      "header": "NOS SERVICES RÉCENTS"
+    },
+  
+    "footer": {
+      "description": "Dolor aliqua scelerisque interdum tellus ",
+      "description_1": "conubia erated burdient mane toward gentle",
+      "sections": [
+      {
+        "title": "CATÉGORIE",
+        "items": {
+          "item1": "Informatique",
+          "item2": "Construction",
+          "item3": "Nettoyage",
+          "item4": "Plomberie",
+          "item5": "Lavage de voiture",
+          "item6": "Électricité",
+          "item7": "Développement logiciel"
+        }
+      },
+      {
+        "title": "INFORMATIONS",
+        "items": {
+          "item1": "Mon compte",
+          "item2": "Connexion/Inscription",
+          "item3": "Liste de souhaits",
+          "item4": "À propos de nous",
+          "item5": "Carrières"
+        }
+      },
+      {
+        "title": "ASSISTANCE",
+        "items": {
+          "item1": "Contactez-nous",
+          "item2": "Utiliser un bon",
+          "item3": "Support",
+          "item4": "Affiliation",
+          "item5": "Politiques et règles"
+        }
+      },
+      {
+        "title": "CONTACT",
+        "items": {
+          "item1": "📍 Decatur Pl, Whitby, ON L1R 3R1, Canada",
+          "item2": "📞 1-437-424-4015",
+          "item3": "📧 info@gigmosaic.ca"
+        }
+      }
+    ],
+      "copyright": "Copyright © 2025 Gigmosaic. Tous droits réservés"
+    },
+
+    
+  "navigation": {
+      "home": "Accueil",
+      "services": "Services",
+      "filters": "Filtres",
+      "reset_filter": "Réinitialiser le filtre"
+      },
+
+    "search2": {
+    "search_button": "Rechercher", 
+    "search_by_keyword": "Rechercher par mot-clé",
+    "keyword_placeholder": "Que recherchez-vous ?",
+    "categories": "Catégories",
+    "sub_category": "Sous-catégorie",
+    "all_sub_category": "Toutes les sous-catégories",
+    "all_categories": "Toutes les catégories",
+    "location": "Emplacement",
+    "all_canada": "Tout le Canada",
+    "price_range": {
+      "label": "Fourchette de prix",
+      "label2": "Prix"
+    }
+  },
+
+  "ratings": "Évaluations",
+
+  "found": "Trouvé",
+
+  "sort_options": {
+  "sort": "Trier",
+  "price_low_to_high": "Prix croissant",
+  "price_high_to_low": "Prix décroissant"
+ },
+
+ "service_details": {
+    "service_details": "Détails du service",
+    "bookings": "Réservations",
+    "wishlist": "Ajouter à la liste de souhaits",
+    "reviews": "Avis",
+    "overview": "Aperçu du service",
+    "additional_services": "Services supplémentaires",
+    "includes": "Comprend",
+    "video": "Vidéo",
+    "faqs": "FAQ"
+  },
+
+  "reviews": {
+    "reviews": "Avis",
+    "write_review": "Rédiger un avis",
+    "customer_reviews": "Avis des clients",
+    "out": "sur",
+    "based_on": "Basé sur",
+    "star_ratings": "Évaluations en étoiles"
+  },
+
+  "reactions": {
+    "reply": "Répondre",
+    "like": "J'aime",
+    "dislike": "Je n'aime pas"
+  },
+
+  "load_more": "Charger plus",
+
+  "pricing_section": {
+    "pricing": "Tarification",
+    "offer": "Offre",
+    "starts_from": "À partir de",
+    "additional_services_count": "Services supplémentaires ajoutés",
+    "additional_services": "Services supplémentaires",
+    "mins": "Minutes",
+    "total_amount": "Montant total",
+    "actions": {
+      "book_service": "Réserver un service",
+      "send_enquiry": "Envoyer une demande",
+      "additional_services_note": "Des services supplémentaires sont fréquemment ajoutés"
+    }
+  },
+
+  "provider": {
+    "contact_provider": "Contacter le prestataire",
+    "member_since": "Membre depuis",
+    "reviews_ratings": "Avis et évaluations",
+    "no_of_listings": "Nombre d'annonces",
+    "contact_form": {
+      "name": "Nom",
+      "phone_number": "Numéro de téléphone",
+      "email_address": "Adresse e-mail",
+      "message": "Écrire un message",
+      "submit": "Soumettre"
+    }
+  },
+
+  "business_hours": "Heures d'ouverture",
+
+  "provider_details": "Détails du prestataire",
+
+  "actions": {
+    "view_email": "Voir l'e-mail",
+    "view_phone_number": "Voir le numéro de téléphone",
+    "chat_with_provider": "Discuter avec le prestataire",
+    "report_provider": "Signaler le prestataire"
+  }
+
+}
+  

@@ -1,0 +1,356 @@
+{
+  "car": "Search for Service",
+  "LPCategoryHeader": "adsdsadasd",
+  "navigation": {
+    "categories": "Categories",
+    "home": "Home",
+    "services": "Services",
+    "customers": "Customers",
+    "providers": "Providers",
+    "pages": "Pages",
+    "become_a_provider": "Become a Provider",
+    "admin": "Admin"
+  },
+
+  "search": {
+    "search_for_service": "Search for Service",
+    "enter_location": "Enter Location"
+  },
+
+  "categories_section": {
+    "header": "Explore our Categories",
+    "construction": "Construction",
+    "removals": "Removals",
+    "cleaning": "Cleaning",
+    "computer_service": "Computer Service",
+    "electrical": "Electrical",
+    "man_van": "Man & Van",
+    "deliveries": "Deliveries",
+    "mobile_barber": "Mobile Barber",
+    "interior": "Interior",
+    "plumbing": "Plumbing",
+    "nail_technicians": "Nail Technicians",
+    "hair_dressers": "Hair Dressers",
+    "listings": "Listings",
+    "view": "View",
+    "new": "New"
+  },
+
+  "view_all_btn": {
+    "view_all": "View All"
+  },
+
+  "featured_services": {
+    "header": "Our Featured Services",
+    "description": "Each listing is designed to be clear and concise, providing customers"
+  },
+
+  "popular_services": {
+    "header": "Our Popular Services",
+    "services_list": [
+      "Computer Service",
+      "Removals",
+      "Man & Van",
+      "Furniture Assembly",
+      "Electrical",
+      "Construction",
+      "Plumbing",
+      "More Services"
+    ]
+  },
+
+  "how_it_works": {
+    "header": "How Gigmosaic Works",
+    "step_1": "Post a Service",
+    "step_1_description": "After you post a job, our matching system identifies and alerts relevant Provider, who can then express interest in your job.",
+    "step_2": "Getting Booked & Job done",
+    "step_2_description": "After you post a job, our matching system identifies and alerts relevant Provider, who can then express interest in your job.",
+    "step_3": "Get Reviewed & Get Leads",
+    "step_3_description": "After you post a job, our matching system identifies and alerts relevant Provider, who can then express interest in your job."
+  },
+  "preferred_services": {
+    "header": "Most Preferred Services"
+  },
+  "popular_providers": {
+    "header": "Popular Providers",
+    "description": "Each listing is designed to be clear and concise, providing customers",
+    "reviews": "Reviews",
+    "services": "Services",
+    "price": "From "
+  },
+
+  "high_rated_services": {
+    "header": "Browse High Rated Services",
+    "services_list": [
+      "Removals",
+      "Furniture Assembly",
+      "Electrical Services",
+      "Construction",
+      "Man & Van",
+      "Plumbing",
+      "More Services"
+    ]
+  },
+
+  "customer_reviews": {
+    "header": "Genuine reviews from Customers",
+    "description": "Each listing is designed to be clear and concise, providing customers",
+    "rating": "Excellent",
+    "total_reviews": "Based on 456 reviews"
+  },
+
+  "become_a_provider": {
+    "header": "Become a Provider",
+    "description": "Post your service in a minute",
+    "join_us_btn": "Join us"
+  },
+
+  "recent_blogs": {
+    "header": "Checkout our Recent Blogs"
+  },
+
+  "business_growth": {
+    "header": "Add Services & Grow your business with us",
+    "description": "A versatile platform that connects you with local professionals across various categories, from home services like plumbing and electrical work to personal services like photography and tutoring."
+  },
+
+  "professions_near_you": {
+    "header": "Our Professions Near You",
+    "professions_list": [
+      "Appliance Repair",
+      "Flooring",
+      "Garage Doors",
+      "Fencing",
+      "Carpet Cleaning",
+      "Driveways",
+      "Gutter Cleaning",
+      "Land Surveying",
+      "Contractors",
+      "Exterior Painting",
+      "Gutter Repair",
+      "Landscaping",
+      "Drywall",
+      "Plumbing",
+      "Home Builders",
+      "Lawn & Yard Work",
+      "Electrical & Services",
+      "Remodeling",
+      "Sprinkler Systems",
+      "House Cleaning",
+      "Interior Painting",
+      "Roofing",
+      "More Services"
+    ]
+  },
+
+  "popular_cities": {
+    "header": "Popular Cities",
+    "cities_list": [
+      "Detroit",
+      "Greensboro",
+      "Kansas City",
+      "Memphis",
+      "El Paso",
+      "Harrisburg",
+      "Las Vegas",
+      "Miami",
+      "Fort Lauderdale",
+      "Hartford",
+      "Long Beach",
+      "Milwaukee",
+      "Fort Worth",
+      "Houston",
+      "Los Angeles",
+      "Minneapolis",
+      "Fresno",
+      "Indianapolis",
+      "Louisville",
+      "Modesto",
+      "Grand Rapids",
+      "Jacksonville",
+      "Madison",
+      "Nashville"
+    ]
+  },
+
+  "footer": {
+    "product": ["Features", "Pricing", "Case studies", "Reviews", "Updates"],
+    "support": [
+      "Getting started",
+      "Help center",
+      "Server status",
+      "Report a bug",
+      "Chat support"
+    ],
+    "for_provider": ["About", "Contact us", "Careers", "FAQ’s", "Blog"],
+    "other_products": ["Report a bug", "Chat support"],
+    "subscription": {
+      "header": "Sign Up For Subscription",
+      "placeholder": "Enter Email Address",
+      "subscription_btn": "Subscription"
+    },
+
+    "download_app": "Download Our App",
+    "language_currency": {
+      "language": "English",
+      "currency": "USD"
+    },
+    "copyright": "Copyright © 2024 - All Rights Reserved Truelysell",
+    "terms_conditions": "Terms and Conditions",
+    "privacy_policy": "Privacy Policy"
+  },
+
+  "create_service": "Create a Service",
+  "service": "Service",
+  "create_service_title": "Create a Service",
+  "tabs": {
+    "service_information": "Service Information",
+    "availability": "Availability",
+    "location": "Location",
+    "faq": "FAQ",
+    "seo": "SEO",
+    "gallery": "Gallery"
+  },
+
+  "service_information": {
+    "basic_information": "Basic Information",
+    "fields": {
+      "service_title": "Service Title *",
+      "slug": "Slug *",
+      "category": "Category *",
+      "sub_category": "Sub Category *"
+    },
+    "pricing": {
+      "title": "Pricing",
+      "enter_amount": "Enter Amount *",
+      "is_offers": "Is Offers *",
+      "offer_type": "Offer Type *",
+      "offer_amount": "Offer Amount *",
+      "price_after_discount": "Price after Discount *",
+      "duration_type": "Duration Type *",
+      "duration": "Duration *"
+    },
+    "location_staffs": {
+      "title": "Location & Staffs",
+      "description": "(Can add multiple locations)",
+      "staff": "Staff *",
+      "includes": "Includes",
+      "add_new": "Add New"
+    },
+    "additional_information": {
+      "title": "Additional Information",
+      "fields": {
+        "name": "Name *",
+        "price": "Price *",
+        "duration": "Duration *"
+      },
+      "add_new": "Add New"
+    }
+  },
+  "service_overview": {
+    "title": "Service Overview",
+    "overview": "Overview",
+    "text_editor": {
+      "styles": "Styles"
+    },
+    "is_active": "Is Active *"
+  },
+  "quick_preview": {
+    "title": "Quick Preview",
+    "service_name": "Car Wash",
+    "location": "Montana, USA"
+  },
+  "live_preview_btn": {
+    "live_preview": "Live Preview"
+  },
+  "save_continue_btn": {
+    "save_continue": "Save & Continue"
+  },
+  "back_btn": {
+    "back": "Back"
+  },
+
+  "availability": {
+    "title": "Availability",
+    "days": {
+      "all_days": "All Days",
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "time_slots": {
+      "all_days": "All Days",
+      "from": "From",
+      "to": "To",
+      "slots": "Slots"
+    }
+  },
+
+  "location": {
+    "title": "Location",
+    "fields": {
+      "address": "Address",
+      "enter_address": "Enter an address",
+      "country": "Country",
+      "enter_country": "Enter Country",
+      "city": "City",
+      "enter_city": "Enter Your City",
+      "state": "State",
+      "enter_state": "Enter Your State",
+      "pincode": "Pincode",
+      "enter_pincode": "Enter Your Pincode",
+      "google_maps_place_id": "Google Maps Place ID",
+      "latitude": "Latitude",
+      "longitude": "Longitude"
+    },
+
+    "faq": {
+      "title": "FAQ",
+      "questions": [
+        {
+          "question": "Question",
+          "answer": "Answer"
+        }
+      ]
+    }
+  },
+
+  "seo": {
+    "title": "SEO",
+    "meta_title": "Enter Meta Title",
+    "meta_keywords": "Meta Keywords",
+    "meta_description": "Meta Description"
+  },
+
+  "Admin_categories": {
+    "title": "Categories",
+    "filter": "Filter",
+    "fields": {
+      "add_category": "Add Category",
+      "id": "ID",
+      "categories": "Categories",
+      "categories_slug": "Categories Slug",
+      "date": "Date",
+      "featured": "Featured",
+      "action": "Action"
+    }
+  },
+
+  "Admin_sub_categories": {
+    "title": "Sub Categories",
+    "filter": "Filter",
+    "fields": {
+      "add_sub_category": "Add Sub Category",
+      "id": "ID",
+      "sub_categories": "Sub Categories",
+      "sub_categories_slug": "Sub Categories Slug",
+      "date": "Date",
+      "featured": "Featured",
+      "action": "Action"
+    }
+  }
+}

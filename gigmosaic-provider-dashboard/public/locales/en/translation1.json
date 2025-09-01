@@ -1,0 +1,287 @@
+{
+    "contact": {
+      "phone": "1-437-424-4015",
+      "email": "info@gigmosaic.ca"
+    },
+    "language_currency": {
+      "language": "English",
+      "currency": "USD"
+    },
+    "authentication": {
+      "notification": "Notification",
+      "login_register": "Login / Register"
+    },
+    
+    "search": {
+      "select_category": "Select Category",
+      "search_for_servises": "Search for Services",
+      "search_products": "Search products",
+      "enter_location": "Enter Location",
+      "search_button": "Search",
+      "all_canada": "All Canada"
+    },
+
+    "featured_categories": {
+    "header": "Featured Categories",
+    "categories": [
+    {
+      "label_1": "Construction"
+    },
+    {
+      "label_2": "Car Wash"
+    },
+    {
+      "label_3": "Electrical"
+    },
+    {
+      "label_4": "Cleaning"
+    },
+    {
+      "label_5": "Carpentry"
+    },
+    {
+      "label_6": "Plumbing"
+    },
+    {
+      "label_7": "Computer"
+    },
+    {
+      "label_8": "Tutoring"
+    },
+    {
+      "label_9": "Personal Training"
+    }
+  ]
+
+    },
+    
+    "deal_of_the_day": {
+      "description": "Deal of the Day"
+    },
+
+    "features": [
+  {
+    "label_1": "24/7 Support",
+    "description_1": "Our team is available around the clock to assist with any"
+  },
+  {
+    "label_2": "Flexible Opportunities",
+    "description_2": "Congue on imperdiet raes quisque faucibus"
+  },
+  {
+    "label_3": "Expert Guidance",
+    "description_3": "Congue on imperdiet raes"
+  },
+  {
+    "label_4": "Help Center",
+    "description_4": "Quisque faucibus"
+  }
+],
+
+    "our_feature": "Our Feature",
+    "view_all": "View All",
+    "products": [
+      {
+        "status": "Status:",
+        "available_now": "Available Now",
+        "available_product": "Available Product:"
+      }
+    ],
+    "countdown": "Hurry Up! Offer ends in:",
+
+    "pagination": {
+    "previous": "Previous",
+    "next": "Next"
+  },
+
+    "services": [
+      {
+        "reviews": "Reviews",
+        "button": "BOOK NOW"
+      }
+    ],
+
+    "recent_products": {
+        "header": "Recent Product",
+        "products": [
+          {
+            "name": "Flooring Installation",
+            "price": "From",
+            "button": "Explore Now"
+          }
+        ]
+      },
+
+   "hot_products": {
+    "header": "Hot Products",
+    "products": [
+      {
+        "name": "Security Camera Installation",
+        "price": "From $56.00",
+        "button": "Explore Now"
+      }
+        ]
+    },
+
+  "top_providers": {
+    "header": "Top Providers"
+    },
+
+  "our_recent_providers": {
+    "header": "OUR RECENT SERVICES"
+    },
+
+
+    "footer": {
+        "description": "Dolor aliqua scelerisque interdum tellus",
+        "description_1": "conubia erated burdient mane toward gentle",
+        "sections": [
+          {
+            "title": "CATEGORY",
+            "items": {
+              "item1": "Computer",
+              "item2": "Contraction",
+              "item3": "Cleaning",
+              "item4": "Plumbing",
+              "item5": "Car Wash",
+              "item6": "Electrical",
+              "item7": "Software Development"
+            }
+          },
+          {
+            "title": "INFO",
+            "items": {
+              "item1": "My Account",
+              "item2": "Login/Register",
+              "item3": "Wishlist",
+              "item4": "About Us",
+              "item5": "Careers"
+            }
+          },
+          {
+            "title": "SUPPORT",
+            "items": {
+              "item1": "Contact Us",
+              "item2": "Redeem Voucher",
+              "item3": "Support",
+              "item4": "Affiliate",
+              "item5": "Policies & Rules"
+            }
+          },
+          {
+            "title": "CONTACT",
+            "items": {
+              "item1": "📍 Decatur Pl, Whitby, ON L1R 3R1, Canada",
+              "item2": "📞 1-437-424-4015",
+              "item3": "📧 Info@Gigmosic.CA"
+            }
+          }
+        ],
+        "copyright": "Copyright © 2025 Gigmosaic. All Rights Reserved"
+      },
+
+      "navigation": {
+      "home": "Home",
+      "services": "Services",
+      "filters": "Filters",
+      "reset_filter": "Reset Filter",
+      "service_details": "Service Details"
+  },
+
+    "search2": {
+    "search_button": "Search", 
+    "search_by_keyword": "Search by keyword",
+    "keyword_placeholder": "What are you looking for?",
+    "categories": "Categories",
+    "sub_category": "Sub Category",
+    "all_sub_category": "All Sub Category",
+    "all_categories": "All Categories",
+    "location": "Location",
+    "all_canada": "All Canada",
+    "price_range": {
+      "label": "Price Range",
+      "label2": "Price"
+    }
+  },
+
+  "ratings": "Ratings",
+
+  "found": "Found",
+
+  "sort_options": {
+  "sort": "Sort",
+  "price_low_to_high": "Price Low to High",
+  "price_high_to_low": "Price High to Low"
+  },
+  
+  "service_details": {
+    "service_details": "Service Details",
+    "bookings": "Bookings",
+    "wishlist": "Add to Wishlist",
+    "reviews": "reviews",
+    "overview": "Service Overview",
+    "additional_services": "Additional Services",
+    "includes": "Includes",
+    "video": "Video",
+    "faqs": "FAQ's"
+  },
+
+  "reviews": {
+      "reviews": "Reviews",
+      "write_review": "Write a Review",
+      "customer_reviews": "Customer Reviews",
+      "out": "out of ",
+      "based_on": "Based On",
+      "star_ratings": "Star Ratings"
+
+  },
+
+  "reactions": {
+    "reply": "Reply",
+    "like": "Like",
+    "dislike": "Dislike"
+  },
+
+  "load_more": "Load More",
+        
+  "pricing_section": {
+    "pricing": "Pricing",
+    "offer": "Offer",
+    "starts_from": "Starts From",
+    "additional_services_count": "Additional Services added",
+    "additional_services": "Additional Services",
+    "mins": "Mins",
+    "total_amount": "Total Amount",
+    "actions": {
+      "book_service": "Book Service",
+      "send_enquiry": "Send Enquiry",
+      "additional_services_note": "Additional services are frequently added"
+    }
+  },
+
+  "provider": {
+      "contact_provider": "Contact Provider",
+      "member_since": "Member Since",
+      "reviews_ratings": "Reviews & Ratings",
+      "no_of_listings": "No. of Listings",
+      "contact_form": {
+        "name": "Name",
+        "phone_number": "Phone Number",
+        "email_address": "Email Address",
+        "message": "Write a Message",
+        "submit": "Submit"
+      }
+    },
+    
+    "business_hours": "Business Hours",
+
+    "provider_details": "Provider Details",
+
+    "actions": {
+      "view_email": "View Email",
+      "view_phone_number": "View Phone Number",
+      "chat_with_provider": "Chat with Provider",
+      "report_provider": "Report Provider"
+    }
+}
+  
