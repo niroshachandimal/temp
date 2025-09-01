@@ -1,0 +1,75 @@
+.fc .fc-button {
+  background-color: #2563eb; /* blue-600 */
+  color: #ffffff !important;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  opacity: 1;
+}
+
+.fc .fc-day-today .fc-daygrid-day-number {
+  background-color: #25eb8f !important; /* blue-600 */
+  color: white !important;
+  border-radius: 9999px;
+  padding: 4px 8px;
+  display: inline-block;
+  min-width: 10px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.fc {
+  background-color: #18181b !important; /* slate-900 */
+  color: #f1f5f9 !important; /* slate-100 */
+  padding: 20px;
+  border-radius: 0.5rem;
+}
+
+/* Header title text */
+.fc-toolbar-title {
+  color: #717171 !important; /* slate-200 */
+}
+
+/* Event background and text */
+.fc-event {
+  background-color: #00906e !important; /* blue-900 */
+  color: #e0f2fe !important; /* blue-100 */
+}
+
+/* Day numbers */
+.fc .fc-daygrid-day-number {
+  color: #cbd5e1 !important; /* slate-300 */
+}
+
+/* Today number pill */
+.fc .fc-day-today .fc-daygrid-day-number {
+  background-color: #00906e !important; /* red-500 */
+  color: white !important;
+}
+
+/* Buttons */
+.fc .fc-button {
+  background-color: #334155 !important;
+  color: white !important;
+}
+
+.fc .fc-button:hover {
+  background-color: #1e293b !important;
+}
+
+.fc .fc-button.fc-button-active {
+  background-color: #00906e !important;
+}
+
+/* List View Text */
+.fc .fc-list-event-title {
+  color: #0a84ff !important;
+}
+
+/* Day cell borders */
+.fc .fc-scrollgrid td,
+.fc .fc-scrollgrid th {
+  border-color: #878787 !important; /* gray-300 */
+}

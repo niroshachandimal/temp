@@ -1,0 +1,36 @@
+import * as yup from "yup";
+import {
+  additionalServicesRule,
+  availabilityRule,
+  discountRule,
+  faqRule,
+  isAddtionalRule,
+  isFaqRule,
+  locationRule,
+  packagesRule,
+  priceRule,
+  serviceCategoryRule,
+  serviceGalleryRule,
+  serviceIncludeRule,
+  serviceOverviewRule,
+  serviceSubCategoryRule,
+  serviceTitleRule,
+} from "./ValidationRules";
+
+export const serviceSchema = yup.object().shape({
+  serviceTitle: serviceTitleRule,
+  categoryId: serviceCategoryRule,
+  subCategoryId: serviceSubCategoryRule,
+  additionalServices: additionalServicesRule,
+  serviceOverview: serviceOverviewRule,
+  availability: availabilityRule,
+  includes: serviceIncludeRule,
+  price: priceRule,
+  isFaq: isFaqRule,
+  isAddtional: isAddtionalRule,
+  faq: faqRule,
+  gallery: serviceGalleryRule,
+  location: locationRule,
+  packages: packagesRule,
+  discount: discountRule,
+});

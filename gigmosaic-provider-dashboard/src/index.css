@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  font-family: sans-serif;
+  margin: 0 auto;
+  /* align-items: center; */
+}
+
+/* For Chrome, Safari and Opera */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Firefox */
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+@layer components {
+  .slot-block {
+    @apply px-4 py-2 rounded-md bg-blue-500 text-white font-medium hover:bg-blue-600 transition-colors duration-300;
+  }
+}
+
+@layer utilities {
+  .text-heading1 {
+    @apply text-[34px] font-bold tracking-[0.25px] leading-[1.2] text-gray-700 dark:text-darkModeText;
+  }
+
+  .text-heading2 {
+    @apply text-[24px] font-normal tracking-[0px] leading-[1.3]  text-gray-700 dark:text-darkModeText;
+  }
+
+  .text-heading3 {
+    @apply text-[20px] font-medium tracking-[0.15px] leading-[1.4]  text-gray-700 dark:text-darkModeText;
+  }
+
+  .text-subtitle1 {
+    @apply text-[15px] font-semibold tracking-[0.0px] leading-[1.3] text-gray-700 dark:text-darkModeText;
+  }
+
+  .text-subtitle2 {
+    @apply text-[14px] font-normal tracking-[0.1px] leading-[1.5];
+  }
+
+  .text-subtitle3 {
+    @apply text-[20px] font-semibold tracking-[0.15px] leading-[1.4]  text-gray-700 dark:text-darkModeText;
+  }
+
+  .text-subtitle4 {
+    @apply text-[16px] font-medium tracking-[0.15px] leading-[1.4];
+  }
+
+  .text-subtitle5 {
+    @apply text-[14px] font-medium tracking-[0.15px] leading-[1.4]  text-gray-700 dark:text-darkModeText;
+  }
+
+  .text-body1 {
+    @apply text-[14px] font-normal tracking-[0.25px] leading-[1.6]  dark:text-darkModeText;
+  }
+
+  .text-body2 {
+    @apply text-[14px] font-semibold tracking-[0.25px] leading-[1.6] dark:opacity-90 text-gray-800 dark:text-darkModeText;
+  }
+
+  .text-body3 {
+    @apply text-[14px] font-normal tracking-[0.5px] leading-[1.6];
+  }
+
+  .text-navlink {
+    @apply text-[14px] font-medium tracking-[0.25px] leading-[1.6] opacity-70;
+  }
+
+  .text-caption {
+    @apply text-[12px] font-medium tracking-[0.2px] leading-[1.4] text-gray-600 dark:text-darkModeTextSecondary;
+  }
+
+  .text-caption2 {
+    @apply text-[11px] font-medium tracking-[0.2px] leading-[1.4] text-gray-400;
+  }
+
+  /* .text-caption3 {
+    @apply text-[12px] font-medium tracking-[0.2px] leading-[1.4] text-gray-600 dark:text-darkModeTextSecondary;
+  } */
+
+  .text-button {
+    @apply text-[14px] font-normal capitalize tracking-[0.75px] leading-[1.5] dark:text-zinc-900 opacity-90;
+  }
+
+  .text-overline {
+    @apply text-[10px] font-semibold uppercase tracking-[1.2px] leading-[1.5] opacity-50;
+  }
+
+  .text-error {
+    @apply text-[12px] font-medium text-red-500;
+  }
+}
